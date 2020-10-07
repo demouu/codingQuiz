@@ -45,37 +45,14 @@ function startUp() {
     </div>
     `
     question1El.innerHTML = question1;
+    $("#q1List1").on("click", function(event){
+        if (event.target.matches("button")){
+            question1El.innerHTML = '';
+        }
+    })
     })
 }
 startUp();
-
-// function questionOne() {
-//     var question1 = `
-//     <div class="container">
-//     <div class="card">
-//         <div class="card-body">
-//             <h4 class="card-title">Question 1</h4>
-//             <p class="card-text">Commonly used data types do NOT include:</p>
-//             <ul id="q1List1">
-//                 <li>
-//                     <button id="q1A1">1. Strings</button>
-//                 </li>
-//                 <li>
-//                     <button id="q1A2">2. Booleans</button>
-//                 </li>
-//                 <li>
-//                     <button id="q1A3">3. Alerts</button>
-//                 </li>
-//                 <li>
-//                     <button id="q1A4">4. Numbers</button>
-//                 </li>
-//             </ul>
-//         </div>
-//     </div>
-// </div>
-// `
-// question1El.innerHTML = question1;
-// }
 
 // Make Questions, display on screen
 // Add event listener to list that targets buttons. If they click the wrong button, subtract time.
