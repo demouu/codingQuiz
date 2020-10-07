@@ -1,8 +1,12 @@
 var mainEl = document.getElementById("main");
 var question1El = document.getElementById("question1");
+var question2El = document.getElementById("question2");
 function startUp() {
     // 1st Question displayed as empty text.
     question1El.innerHTML = '';
+    // 2nd Question displayed as empty text.
+    question2El.innerHTML = '';
+    // Utilizing Template Literals for dynamic HTML elements
     var mainContent = `
     <div class="container">
     <div class="jumbotron-fluid">
@@ -18,8 +22,9 @@ function startUp() {
     mainEl.innerHTML = mainContent;
     // JQuery Click event listener to start the quiz
     $("#startQuiz").on("click", function(){
-        // Upon Quiz Start, mainEl disappears and 1st Question Appears.
+        // Upon Quiz Start, mainEl disappears and question1El Appears.
         mainEl.innerHTML = '';
+        // Question 1 Template Literal
         var question1 = `
         <div class="container">
         <div class="card">
@@ -48,6 +53,31 @@ function startUp() {
     $("#q1List1").on("click", function(event){
         if (event.target.matches("button")){
             question1El.innerHTML = '';
+            var question2 = `
+            <div class="container">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Question 2</h4>
+                    <p class="card-text">The condition within an if / else statement is enclosed within ____.</p>
+                    <ul id="q2List1">
+                        <li>
+                            <button id="q2A1">1. Quotes</button>
+                        </li>
+                        <li>
+                            <button id="q2A2">2. Curly Brackets</button>
+                        </li>
+                        <li>
+                            <button id="q2A3">3. Parentheses</button>
+                        </li>
+                        <li>
+                            <button id="q2A4">4. Square Brackets</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        `
+        question2El.innerHTML = question2;
         }
     })
     })
