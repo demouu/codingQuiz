@@ -5,6 +5,7 @@ var question2El = document.getElementById("question2");
 var question3El = document.getElementById("question3");
 var question4El = document.getElementById("question4");
 var question5El = document.getElementById("question5");
+var endEl = document.getElementById("end");
 function startUp() {
     // 1st Question displayed as empty text.
     question1El.innerHTML = '';
@@ -166,6 +167,25 @@ function startUp() {
                                 </div>
                                 `
                                         question5El.innerHTML = question5;
+                                        $(".questionList").on("click", function (event){
+                                            if (event.target.matches("button")){
+                                                question5El.innerHTML = '';
+                                                var end = `
+                                                <div class="container">
+                                                <div class="jumbotron-fluid">
+                                                    <h1 class="display-3">Complete!</h1>
+                                                    <p class="lead">That's all folks!</p>
+                                                    <hr class="my-2">
+                                                    <p class="lead">
+                                                    <input type="text"/>
+                                                    <input class="btn btn-primary" type="submit" value="Submit Score">
+                                                    </p>
+                                                </div>
+                                                </div>
+                                                `
+                                                endEl.innerHTML = end;
+                                            }
+                                        })
                                     }
                                 })
                             }
