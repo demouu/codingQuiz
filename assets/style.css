@@ -1,8 +1,4 @@
-#q1List1 button{
+.questionList button{
     background-color: blueviolet;
-    color: white;
-}
-#q2List1 button{
-    background-color: blue;
     color: white;
 }

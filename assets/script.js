@@ -31,7 +31,7 @@ function startUp() {
             <div class="card-body">
                 <h4 class="card-title">Question 1</h4>
                 <p class="card-text">Commonly used data types do NOT include:</p>
-                <ul id="q1List1">
+                <ul class="questionList">
                     <li>
                         <button id="q1A1">1. Strings</button>
                     </li>
@@ -50,7 +50,7 @@ function startUp() {
     </div>
     `
     question1El.innerHTML = question1;
-    $("#q1List1").on("click", function(event){
+    $(".questionList").on("click", function(event){
         if (event.target.matches("button")){
             question1El.innerHTML = '';
             var question2 = `
@@ -59,7 +59,7 @@ function startUp() {
                 <div class="card-body">
                     <h4 class="card-title">Question 2</h4>
                     <p class="card-text">The condition within an if / else statement is enclosed within ____.</p>
-                    <ul id="q2List1">
+                    <ul class="questionList">
                         <li>
                             <button id="q2A1">1. Quotes</button>
                         </li>
@@ -78,6 +78,11 @@ function startUp() {
         </div>
         `
         question2El.innerHTML = question2;
+        $(".questionList").on("click", function(event){
+            if (event.target.matches("button")){
+                question2El.innerHTML = '';
+            }
+        })
         }
     })
     })
