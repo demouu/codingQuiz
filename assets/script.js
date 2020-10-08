@@ -1,39 +1,34 @@
 // Declaring Variables and Grabbing
 var mainEl = document.getElementById("main");
-var question1El = document.getElementById("question1");
-var question2El = document.getElementById("question2");
-var question3El = document.getElementById("question3");
-var question4El = document.getElementById("question4");
-var question5El = document.getElementById("question5");
 var endEl = document.getElementById("end");
 var question = 0;
 var questionArray = [
     {
-        question: "The condition within an if / else statement is enclosed within ____.",
-        answers: ["Quotes", "Curly Brackets", "Parentheses", "Square Brackets"],
-        correctA: "Curly Brackets"
+        question: "According to the Owl, how many licks does it take to get to the Tootsie center of a Tootsie pop?",
+        answers: ["12", "3", "99", "24"],
+        correctA: "3"
     },
 
     {
-        question: "Arrays in JavaScript can be used to store ____.",
-        answers: ["Numbers and Strings", "Booleans", "Other Arrays", "All of the Above"],
-        correctA: "All of the Above"
+        question: "What flavor profile do Reese's Puffs have?",
+        answers: ["Vanilla and Chocolate", "Cinammon and Chocolate", "HTML and JavaScript", "Peanut Butter and Chocolate"],
+        correctA: "Peanut Butter and Chocolate"
     },
 
     {
-        question: "",
-        answers: [],
-        correctA: ""
+        question: "What is the price of a Footlong at Subway?",
+        answers: ["Three Dollar", "Seven Dollar", "Five Dollar", "Ten Dollar"],
+        correctA: "Five Dollar"
     },
     {
-        question: "",
-        answers: [],
-        correctA: ""
+        question: "Forrest Gump: Life is like a ______. You never know what you're gonna get.",
+        answers: ["Rollercoaster", "Box of Chocolates", "Lottery", "Math.floor(Math.random())"],
+        correctA: "Box of Chocolates"
     },
     {
-        question: "",
-        answers: [],
-        correctA: ""
+        question: "Which of the following is not a planet?",
+        answers: ["Pluto", "Earth", "Neptune", "Mars"],
+        correctA: "Pluto"
     }
 
 ]
@@ -97,7 +92,7 @@ function startUp() {
     var mainContent = `
     <div class="container">
     <div class="jumbotron-fluid">
-        <h1 class="display-3">Coding Quiz Challenge</h1>
+        <h1 class="display-3">Random Quiz Challenge</h1>
         <p class="lead">Try to answer the following questions within the time limit. Keep in mind that incorrectly answering these questions will penalize you by lowering your time.</p>
         <hr class="my-2">
         <p class="lead">
