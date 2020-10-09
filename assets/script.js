@@ -2,6 +2,7 @@
 var mainEl = document.getElementById("main");
 var endEl = document.getElementById("end");
 var question = 0;
+
 var questionArray = [
     {
         question: "According to the Owl, how many licks does it take to get to the Tootsie center of a Tootsie pop?",
@@ -32,9 +33,16 @@ var questionArray = [
     }
 
 ]
+// Create Timer
+var timerCount = 60, timer = setInterval(function () {
+    $("#timer").html("Time: " + timerCount--);
+    if (timerCount === 0) clearInterval(timer);
+}, 1000);
+
 function nextQuestion(x) {
     var htmlRender = `
         <div class="container">
+        <h2 id="timer"></h2>
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title">Question ${question + 1}</h4>
@@ -68,7 +76,7 @@ function nextQuestion(x) {
                 console.log("correct");
             } else {
                 console.log("false");
-                // Decrease timer
+                timerCount = timerCount - 10;
             }
 
             if (question !== questionArray.length - 1) {
