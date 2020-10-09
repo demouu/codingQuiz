@@ -1,6 +1,5 @@
 // Declaring Variables and Grabbing
 var mainEl = document.getElementById("main");
-var endEl = document.getElementById("end");
 var question = 0;
 
 var questionArray = [
@@ -83,6 +82,7 @@ function nextQuestion(x) {
                 question++;
                 nextQuestion(question);
             } else if (question === questionArray.length - 1) {
+                endQuiz();
                 //Enter initials; Navigate to highscore screen
             }
             console.log("Question: " + question);
@@ -116,6 +116,23 @@ function startUp() {
     })
 }
 startUp();
+
+function endQuiz () {
+    var endScreen = `
+    <div class="container">
+    <div class="jumbotron-fluid">
+        <h1 class="display-3">Quiz Over!</h1>
+        <p class="lead">Enter your initials to save your score!</p>
+        <hr class="my-2">
+        <p class="lead">
+        <input type="text"/>
+            <a class="btn btn-primary btn-lg" role="button" id="submitScore">Submit Score!</a>
+        </p>
+    </div>
+    </div>
+    `
+    mainEl.innerHTML = endScreen;
+}
 
 // Make Questions, display on screen
 // Add event listener to list that targets buttons. If they click the wrong button, subtract time.
