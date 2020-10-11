@@ -1,7 +1,6 @@
-// Declaring Variables and Grabbing
+// Declaring Global Variables
 var mainEl = document.getElementById("main");
 var question = 0;
-
 var questionArray = [
     {
         question: "According to the Owl, how many licks does it take to get to the Tootsie center of a Tootsie pop?",
@@ -82,7 +81,7 @@ function nextQuestion(x) {
                 question++;
                 nextQuestion(question);
             } else if (question === questionArray.length - 1) {
-                endQuiz();
+                endQuiz(timerCount);
                 //Enter initials; Navigate to highscore screen
             }
             console.log("Question: " + question);
@@ -92,10 +91,6 @@ function nextQuestion(x) {
 }
 
 function startUp() {
-    // 1st Question displayed as empty text.
-    // question1El.innerHTML = '';
-    // 2nd Question displayed as empty text.
-    // question2El.innerHTML = '';
     // Utilizing Template Literals for dynamic HTML elements
     var mainContent = `
     <div class="container">
@@ -117,34 +112,32 @@ function startUp() {
 }
 startUp();
 
-function endQuiz () {
+function endQuiz(timeFinalScore) {
     var endScreen = `
-    <div class="container">
+<div class="container">
     <div class="jumbotron-fluid">
         <h1 class="display-3">Quiz Over!</h1>
-        <p class="lead">Enter your initials to save your score!</p>
-        <hr class="my-2">
-        <p class="lead">
-        <input type="text"/>
+            <p class="lead">Enter your initials to save your score!</p>
+            <hr class="my-2">
+            <p class="lead">
+            <input type="text" id="initials"/>
             <a class="btn btn-primary btn-lg" role="button" id="submitScore">Submit Score!</a>
         </p>
+        <div class="card text-left">
+            <div class="card-body">
+                <h4 class="card-title">High Scores</h4>
+                <p class="card-text" id="scores"></p>
+            </div>
+        </div>
     </div>
-    </div>
+</div>
     `
     mainEl.innerHTML = endScreen;
+    var initials = document.getElementById("initials");
+    document.getElementById("submitScore").addEventListener("click", function () {
+        var score = document.createElement("p");
+        score.innerText = initials.value + " " + timeFinalScore;
+        document.getElementById("scores").append(score);
+    })
+    console.log(initials);
 }
-
-// Make Questions, display on screen
-// Add event listener to list that targets buttons. If they click the wrong button, subtract time.
-// When Start button is clicked, clear and change mainContent to new Questions
-// When question is answered, render the following question.
-// When questions answered incorrectly, subtract time by 10 seconds (10000ms)
-// Enter initials, save highscore to localStorage
-// Create a timer
-
-
-// Questions I have
-// 1. Template literals. What is a template literal? How to use template literals?
-// 2. 
-
-//
