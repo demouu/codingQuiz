@@ -135,9 +135,24 @@ function endQuiz(timeFinalScore) {
     mainEl.innerHTML = endScreen;
     var initials = document.getElementById("initials");
     document.getElementById("submitScore").addEventListener("click", function () {
-        var score = document.createElement("p");
-        score.innerText = initials.value + " " + timeFinalScore;
-        document.getElementById("scores").append(score);
+        var highScoreArray = localStorage.getItem("highscore") || [];
+        var parsed;
+        if (highScoreArray.length !== 0){
+            parsed = JSON.parse(highScoreArray);
+        } else {
+            parsed = [];
+        }
+        var temp = {
+            initials: initials.value,
+            score: timeFinalScore
+        }
+        parsed.push(temp);
+        localStorage.setItem("highscore", JSON.stringify(parsed));
+        for (var i = 0; i < parsed.length; i++) {
+            var score = document.createElement("p");
+            score.innerText = parsed[i].initials + " " + parsed[i].score;
+            document.getElementById("scores").append(score);
+        }
     })
     console.log(initials);
 }
